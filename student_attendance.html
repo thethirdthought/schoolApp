@@ -40,6 +40,9 @@
             <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <!-- fullCalendar 2.2.5-->
+        <link rel="stylesheet" href="plugins/fullcalendar/fullcalendar.min.css">
+        <link rel="stylesheet" href="plugins/fullcalendar/fullcalendar.print.css" media="print">
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
@@ -72,7 +75,7 @@
                                     <li class="user-header" id="profile_image_top_right_click">
                                         <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                                         <p id="top_right_user_detail">
-                                            
+
                                             <!--<small>Member since Nov. 2012</small>-->
                                         </p>
                                     </li>
@@ -100,7 +103,7 @@
             <!-- Left side column. contains the logo and sidebar -->
             <aside class="main-sidebar">
                 <!-- sidebar: style can be found in sidebar.less -->
-                 <section class="sidebar">
+                <section class="sidebar">
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image" id="profile_image_left_bar">
@@ -130,18 +133,26 @@
                 <!-- /.sidebar -->
             </aside>
             <!-- Content Wrapper. Contains page content -->
-            
+
             <div class="content-wrapper">
                 <div class="box box-primary" style="position: relative; left: 0px; top: 0px;">
                     <div class="box-header ui-sortable-handle" style="cursor: move;">
                         <i class="fa  fa-group"></i>
                         <h3 class="box-title">Attendance</h3>
-                       
+
                     </div><!-- /.box-header -->
+                    <div class="col-md-9">
+                        <div class="box box-primary">
+                            <div class="box-body no-padding">
+                                <!-- THE CALENDAR -->
+                                <div id="calendar"></div>
+                            </div><!-- /.box-body -->
+                        </div><!-- /. box -->
+                    </div><!-- /.col -->
                     <div class="box-body">
                         <form method="POST" name="form1" id="form1">
                             <div id="organization_list">
-                                
+
                             </div><!-- /.box-body -->
                         </form>
                     </div>
@@ -174,6 +185,7 @@
 
             <!-- jQuery UI 1.11.4 -->
             <script src="dist/js/jquery-ui.min.js"></script>
+            <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 
             <!--<script src="bootstrap/js/jquery.form.js"></script>-->
             <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -203,6 +215,8 @@
             <!-- AdminLTE App -->
             <script src="dist/js/app.min.js"></script>
             <script src="dist/js/api_conf.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+            <script src="plugins/fullcalendar/fullcalendar.min.js"></script>
             <script>
                 var secret = localStorage.getItem("secret");
                 var courseId = localStorage.getItem("courseId");
@@ -210,6 +224,11 @@
                 var deleteId;
                 var deletehtmlid;
                 var deletehtmlid1;
+                var date = new Date();
+                var d = date.getDate(),
+                        m = date.getMonth(),
+                        y = date.getFullYear();
+                
                 function deleteOrg(orgId, obj1) {
                     deleteId = orgId;
                     deletehtmlid = $(obj1).parent().parent().parent().parent().attr('id');
@@ -217,19 +236,19 @@
 //                    
                 }
 
-                function saveAttendance(){
+                function saveAttendance() {
                     console.log($("#form1").serialize());
                     $.ajax({
                         type: "POST",
                         url: apiUrl + "student/save_attendance",
-                        data : $("#form1").serialize()  + "&secret=" + secret + "&courseId="+courseId+"&att_date="+att_date,
+                        data: $("#form1").serialize() + "&secret=" + secret + "&courseId=" + courseId + "&att_date=" + att_date,
                         datatype: "json",
                         success: function(result) {
                             var obj = $.parseJSON(result);
                             $("#success").html(" Attendance Saved ");
                             if (obj.success)
                             {
-                                
+
                             }
                         },
                         error: function() {
@@ -238,8 +257,8 @@
                     });
 
                 }
-                
-                function editOrg(studentId, name, father_name,mother_name, gender, dob, course_id, email, phone, address, city, state, zipcode) {
+
+                function editOrg(studentId, name, father_name, mother_name, gender, dob, course_id, email, phone, address, city, state, zipcode) {
                     localStorage.setItem("studentId", studentId);
                     localStorage.setItem("name", name);
                     localStorage.setItem("father_name", father_name);
@@ -279,11 +298,11 @@
                     $(".sidebar-menu").html(nav_html);
 
 
-                    
+
                     $.ajax({
                         type: "POST",
                         url: apiUrl + "student/getStudentList",
-                        data: {'secret': secret,'courseId':courseId,'date':att_date},
+                        data: {'secret': secret, 'courseId': courseId, 'date': att_date},
                         datatype: "json",
                         success: function(result) {
                             var obj = $.parseJSON(result);
@@ -291,26 +310,85 @@
                             {
                                 var org_detail_html = '<div class="box-body">';
                                 $.each(obj.students, function(i, obj_organization) {
-                                    if(obj_organization.exist==1)
+                                    if (obj_organization.exist == 1)
                                     {
-                                        org_detail_html+='<div class="row"><h6 class="col-sm-2" for="org_address">'+(i+1)+') '+obj_organization.name+' &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="check-'+obj_organization.id+'" checked="checked" name="att_check[]" value="'+obj_organization.id+'" onclick="" ></h6></div>';
+                                        org_detail_html += '<div class="row"><h6 class="col-sm-2" for="org_address">' + (i + 1) + ') ' + obj_organization.name + ' &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="check-' + obj_organization.id + '" checked="checked" name="att_check[]" value="' + obj_organization.id + '" onclick="" ></h6></div>';
                                     }
                                     else
                                     {
-                                        org_detail_html+='<div class="row"><h6 class="col-sm-2" for="org_address">'+(i+1)+') '+obj_organization.name+' &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="check-'+obj_organization.id+'" name="att_check[]" value="'+obj_organization.id+'" onclick="" ></h6></div>';    
+                                        org_detail_html += '<div class="row"><h6 class="col-sm-2" for="org_address">' + (i + 1) + ') ' + obj_organization.name + ' &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="check-' + obj_organization.id + '" name="att_check[]" value="' + obj_organization.id + '" onclick="" ></h6></div>';
                                     }
-                                    
+
                                 });
-                                org_detail_html+='</div></div>';
-                                org_detail_html+='<div class="row"><input type="button" onclick="saveAttendance();"name="Save_Attendance" value="Save Attendance" class="form-control"></div>';
+                                org_detail_html += '</div></div>';
+                                org_detail_html += '<div class="row"><input type="button" onclick="saveAttendance();"name="Save_Attendance" value="Save Attendance" class="form-control"></div>';
                                 $("#organization_list").html(org_detail_html);
-                            
+
                             }
                         },
                         error: function() {
                             console.log("Some Error Occured");
                         }
                     });
+                    $.ajax({
+                        type: "POST",
+                        url: apiUrl + "student/get_attandance",
+                        data: {'secret': secret},
+                        datatype: "json",
+                        success: function(result) {
+                            console.log(result);
+//                            var obj = $.parseJSON(result);
+//                            if (obj.success)
+//                            {
+//                            
+//                            }
+                        },
+                        error: function() {
+                            console.log("Some Error Occured");
+                        }
+                    });
+                    
+                    $('#calendar').fullCalendar({
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,agendaWeek,agendaDay'
+                    },
+                    buttonText: {
+                        today: 'today',
+                        month: 'month',
+                        week: 'week',
+                        day: 'day'
+                    },
+                    eventSources: [
+                            // your event source
+                            {
+                                url: apiUrl + "student/get_attandance",
+                                data: {'secret': secret, 'courseId': courseId, 'date': att_date},
+                                type: 'POST',
+                                error: function() {
+                                    alert('there was an error while fetching events!');
+                                },
+//                                color: 'green',   // a non-ajax option
+//                                textColor: 'black' // a non-ajax option
+                            }
+
+                            // any other sources...
+
+                        ]
+//                    //Random default events
+//                    events: [
+//                        {
+//                            title: 'All Day Event',
+//                            start: new Date(y, m, 1),
+//                            backgroundColor: "#f56954", //red
+//                            borderColor: "#f56954" //red
+//                        }
+//                    ],
+//                    editable: true,
+//                    droppable: true, // this allows things to be dropped onto the calendar !!!
+                    
+                });
 
                     $('#logout').click(function() {
                         window.location.href = 'logout.html';
