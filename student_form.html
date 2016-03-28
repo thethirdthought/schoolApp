@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>SchoolApp | Organization</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.5 -->
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="dist/font-awesome/font-awesome-4.5.0/css/font-awesome.min.css">
+        <link rel="stylesh  eet" href="dist/css/ionicons.min">
+        <!-- Ionicons -->
+        <!--<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">-->
+        <!-- Theme style -->
+        <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+        <!-- iCheck -->
+        <link rel="stylesheet" href="plugins/iCheck/flat/blue.css">
+        <!-- jvectormap -->
+        <link rel="stylesheet" href="plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+        <!-- Date Picker -->
+        <link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
+        <!-- Daterange picker -->
+        <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker-bs3.css">
+        <!-- bootstrap wysihtml5 - text editor -->
+        <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+        <!--<link rel="stylesheet" href="dist/mobile_asset/jquery.mobile-1.4.5.min.css">-->
+        <!-- jQuery 2.1.4 -->
+        <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+        <!--<script src="dist/mobile_asset/jquery.mobile-1.4.5.min.js"></script>-->
+        <!--<link rel="stylesheet" href="dist/mobile_asset/jquery.mobile-1.4.5.css">-->
+                <!-- jQuery UI 1.11.4 -->
+        <script src="dist/js/jquery-ui.min.js"></script>
+
+        <script src="bootstrap/js/jquery.form.js"></script>
+        <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+        <!--    <script>
+              $.widget.bridge('uibutton', $.ui.button);
+            </script>-->
+        <!-- Bootstrap 3.3.5 -->
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <!-- Sparkline -->
+        <script src="plugins/sparkline/jquery.sparkline.min.js"></script>
+        <!-- jvectormap -->
+        <script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+        <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+        <!-- jQuery Knob Chart -->
+        <script src="plugins/knob/jquery.knob.js"></script>
+        <!-- daterangepicker -->
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>-->
+        <script src="plugins/daterangepicker/daterangepicker.js"></script>
+        <!-- datepicker -->
+        <script src="plugins/datepicker/bootstrap-datepicker.js"></script>
+        <!-- Bootstrap WYSIHTML5 -->
+        <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+        <!-- Slimscroll -->
+        <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="plugins/fastclick/fastclick.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="dist/js/app.min.js"></script>
+        <script src="dist/js/api_conf.js"></script>
+        <![endif]-->
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+
+            <header class="main-header">
+                <!-- Logo -->
+                <a href="#" class="logo">
+                    <!-- mini logo for sidebar mini 50x50 pixels -->
+                    <span class="logo-mini"><b>School</b>App</span>
+                    <!-- logo for regular state and mobile devices -->
+                    <span class="logo-lg"><b>School</b>App</span>
+                </a>
+                <!-- Header Navbar: style can be found in header.less -->
+                <nav class="navbar navbar-static-top" role="navigation">
+                    <!-- Sidebar toggle button-->
+                    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                        <span class="sr-only">Toggle navigation</span>
+                    </a>
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
+
+                            <!-- User Account: style can be found in dropdown.less -->
+                            <li class="dropdown user user-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profile_image_top_right">
+                                    <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                                    <span class="hidden-xs">User</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <!-- User image -->
+                                    <li class="user-header" id="profile_image_top_right_click">
+                                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                        <p id="top_right_user_detail">
+                                            User
+                                        </p>
+                                    </li>
+                                    <!-- Menu Body -->
+
+                                    <!-- Menu Footer-->
+                                    <li class="user-footer">
+                                        <div style="float: left">
+                                            <a href="logout.html" class="btn btn-default btn-flat">Logout</a>
+                                        </div>
+                                        <div class="text-right">
+                                            <a href="profile_detail.html" class="btn btn-default btn-flat">Profile</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- Control Sidebar Toggle Button -->
+                            <li>
+                                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar">
+                <!-- sidebar: style can be found in sidebar.less -->
+                 <section class="sidebar">
+                    <!-- Sidebar user panel -->
+                    <div class="user-panel">
+                        <div class="pull-left image" id="profile_image_left_bar">
+                            <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        </div>
+                        <div class="pull-left info" id="user_detail_left_bar">
+                            <a href="dashboard.html"><p></p></a>
+                            <!--<a href="#"><i class="fa fa-circle text-success"></i> Online</a>-->
+                        </div>
+                    </div>
+                    <!-- search form -->
+                    <form action="#" method="get" class="sidebar-form">
+                        <div class="input-group">
+                            <input type="text" name="q" class="form-control" placeholder="Search...">
+                            <!--              <span class="input-group-btn">
+                                            <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                                          </span>-->
+                        </div>
+                    </form>
+                    <!-- /.search form -->
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu">
+                        <!--<li class="header">MAIN NAVIGATION</li>-->
+
+                    </ul>
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <section class="content">
+                    <div class="box box-info">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Add Student</h3>
+                        </div><!-- /.box-header -->
+                        <!-- form start -->
+                        <form class="form-horizontal" id="student_form" enctype="multipart/form-data" method="post" action="app/index.php/student/add">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="org_name">Name</label>
+                                    <div class="col-sm-10">
+                                        <input type="hidden" id="secret" name="secret">
+                                        <input type="hidden"  id="studentId"  name="studentId" class="form-control">
+                                        <input type="text" placeholder="Student Name" id="student_name"  name="student_name" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="org_owner_name">Student Email</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" placeholder="Student Email" id="student_email" name="student_email" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="org_owner_name">Father Name</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" placeholder="Father Name" id="father_name" name="father_name" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="org_owner_email">Mother Name</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" placeholder="Mother Name" id="mother_name" name="mother_name" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group" id="div-parent">
+                                    <label class="col-sm-2 control-label" for="org_owner_name">Parent Email</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" placeholder="Parent Email" id="parent_email" name="parent_email" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="org_owner_name">Address</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" placeholder="Address" id="address" name="address" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="org_address">Gender</label>
+                                    <div class="col-sm-10">
+                                        <input type="radio" id="gender_male" name="gender" value="Male">&nbsp;<label for="gender_male">Male</label>&nbsp;&nbsp;
+                                        <input type="radio" id="gender_female" name="gender" value="Female">&nbsp;<label for="gender_female">Female</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="org_address">DOB</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" id="student_dob" name="student_dob" id="student_dob" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="org_address">Course</label>
+                                    <div class="col-sm-10">
+                                        <select id="student_course" name="student_course" class="form-control">
+                                            <option value="">Select Course</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                            </div><!-- /.box-body -->
+                        </form>
+                        <div class="box-footer">
+                            <button class="btn btn-info pull-right" type="button" id="student_save">Save</button>
+                        </div><!-- /.box-footer -->
+                    </div>
+
+
+                </section><!-- /.content -->
+            </div><!-- /.content-wrapper -->
+            <!--      <footer class="main-footer">
+                    <div class="pull-right hidden-xs">
+                      <b>Version</b> 2.3.0
+                    </div>
+                    <strong>Copyright &copy; 2016<a href="#">SchoolApp</a>.</strong> All rights reserved.
+                  </footer>-->
+
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark">
+                <!-- Create the tabs -->
+                <ul class="nav nav-justified">
+                    <li><a href="#control-sidebar-home-tab" aria-expanded="true"><i class="fa fa-home"></i></a></li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <!-- Home tab content -->
+                    <div class="tab-pane active" id="control-sidebar-home-tab">
+                        <h3 class="control-sidebar-heading">Notice Board</h3>
+                        <ul class="control-sidebar-menu" id="recent_notices">
+
+                        </ul><!-- /.control-sidebar-menu -->
+
+                    </div><!-- /.tab-pane -->
+
+                </div>
+            </aside><!-- /.control-sidebar -->
+            <!-- Add the sidebar's background. This div must be placed
+                 immediately after the control sidebar -->
+            <div class="control-sidebar-bg"></div>
+        </div><!-- ./wrapper -->
+
+        <!-- jQuery UI 1.11.4 -->
+<!--        <script src="dist/js/jquery-ui.min.js"></script>
+
+        <script src="bootstrap/js/jquery.form.js"></script>
+         Resolve conflict in jQuery UI tooltip with Bootstrap tooltip 
+            <script>
+              $.widget.bridge('uibutton', $.ui.button);
+            </script>
+         Bootstrap 3.3.5 
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+         Sparkline 
+        <script src="plugins/sparkline/jquery.sparkline.min.js"></script>
+         jvectormap 
+        <script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+        <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+         jQuery Knob Chart 
+        <script src="plugins/knob/jquery.knob.js"></script>
+         daterangepicker 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+        <script src="plugins/daterangepicker/daterangepicker.js"></script>
+         datepicker 
+        <script src="plugins/datepicker/bootstrap-datepicker.js"></script>
+         Bootstrap WYSIHTML5 
+        <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+         Slimscroll 
+        <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
+         FastClick 
+        <script src="plugins/fastclick/fastclick.min.js"></script>
+         AdminLTE App 
+        <script src="dist/js/app.min.js"></script>
+        <script src="dist/js/api_conf.js"></script>-->
+        <script>
+            $(function() {
+                
+                var secret = localStorage.getItem("secret");
+                $("#secret").val(secret);
+                if (!secret)
+                {
+                    window.location.href = 'index.html';
+                }
+                var img_user = localStorage.getItem("img_user");
+                var name_user = localStorage.getItem("name_user");
+                var summary_html = localStorage.getItem("summary_html");
+                var news_html = localStorage.getItem("news_html");
+                var nav_html = localStorage.getItem("nav_html");
+                
+                 $("#student_dob").datepicker({
+                                    format: 'yyyy-mm-dd',
+                                    startDate: '-3d'
+                                });
+                                
+                $.ajax({
+                    type: "GET",
+                    data:{secret:secret},
+                    url: apiUrl + "notice/getAllCourseStudent",
+                    datatype: "json",
+                    success: function(result) {   
+                        var obj = $.parseJSON(result);
+                          coursedata=obj.coursedata;
+                           $.each(coursedata, function(i, item) {
+                                $("#student_course").append("<option value=\"" + item.id + "\">" + item.course_name + "</option>");
+                                if(course_id!=''){
+                                    $("#student_course").val(course_id);
+                                    localStorage.setItem("course_id", '');
+                                }
+                            });
+                    },
+                    error: function() {
+                        console.log("Some Error Occured");
+                    }
+                });
+                
+                $("#student_save").click(function() {
+                    $.ajax({
+                            type: "POST",
+                            url: apiUrl + "student/add",
+                            data: $("#student_form").serialize(),
+                            datatype: "json",
+                            success: function(result) {
+                                var obj = $.parseJSON(result);
+                                if (obj.success)
+                                {
+                                    window.location.href = 'student_course.html';
+                                }
+                            },
+                            error: function() {
+                                console.log("Some Error Occured");
+                            }
+                        });
+                 });
+
+
+                $("#profile_image_top_right img").attr('src', img_user);
+                $("#top_right_user_detail").html(name_user);
+                $("#profile_image_left_bar img").attr('src', img_user);
+                $("#profile_image_top_right_click img").attr('src', img_user);
+                $("#user_detail_left_bar p").html(name_user);
+                $("#summary_details").html(summary_html);
+                $("#recent_notices").html(news_html);
+                $(".sidebar-menu").html(nav_html);
+
+
+                var studentId = localStorage.getItem("studentId");
+                var name = localStorage.getItem("name");
+                var father_name = localStorage.getItem("father_name");
+                var mother_name = localStorage.getItem("mother_name");
+                var gender = localStorage.getItem("gender");
+                var dob = localStorage.getItem("dob");
+                var course_id = localStorage.getItem("course_id");
+                var email = localStorage.getItem("email");
+                var phone = localStorage.getItem("phone");
+                var address = localStorage.getItem("address");
+                var city = localStorage.getItem("city");
+                var state = localStorage.getItem("state");
+                var zipcode = localStorage.getItem("zipcode");
+                $("#studentId").val(studentId);
+                $("#student_name").val(name);
+                $("#student_email").val(email);
+                $("#father_name").val(father_name);
+                $("#mother_name").val(mother_name);                
+                $("#address").val(address);
+                if(gender=='Male') $("#gender_male").attr('checked','checked');
+                if(gender=='Female') $("#gender_female").attr('checked','checked');
+                $("#student_dob").val(dob);
+                if(studentId!=='') $("#div-parent").hide();    
+                localStorage.setItem("studentId", '');
+                localStorage.setItem("name", '');
+                localStorage.setItem("father_name", '');
+                localStorage.setItem("mother_name", '');
+                localStorage.setItem("gender", '');
+                localStorage.setItem("dob", '');                
+                localStorage.setItem("email", '');
+                localStorage.setItem("phone", '');
+                localStorage.setItem("address", '');
+                localStorage.setItem("city", '');
+                localStorage.setItem("state", '');
+                localStorage.setItem("zipcode", '');
+
+                $('#logout').click(function() {
+                    window.location = 'logout.html';
+                });
+            });
+        </script>
+    </body>
+</html>
